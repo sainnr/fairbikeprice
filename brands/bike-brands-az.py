@@ -35,8 +35,9 @@ if __name__ == '__main__':
             for ps in main_div.select('p'):
                 ch = list(ps.children)
                 if len(ch) >= 3:
-                    for c in ch:
-                        if c.name != 'br':
-                            print(repr(c.string))
+                    b_raw = [c.string.replace('\n', '').replace('\xa0', ' ').strip() for c in ch
+                             if c.name != 'br' and c.string is not None]
+                    b_filtered = [b for b in b_raw if len(b) > 0]
+                    print(b_filtered)
         else:
             print('No main div found!')
