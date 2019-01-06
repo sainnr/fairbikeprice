@@ -4,6 +4,7 @@ from contextlib import closing
 from bs4 import BeautifulSoup
 from brands.Brand import Brand
 
+
 def get_url(url):
     """
     GET an HTTP URL
